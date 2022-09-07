@@ -14,14 +14,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.calculateButton.setOnClickListener {
-            if (binding.costOfService.text.isNotEmpty()){
-                calculateTip()
-            }
+            showResult()
         }
         binding.roundUpSwitch.setOnClickListener {
-            if (binding.costOfService.text.isNotEmpty()){
-                calculateTip()
-            }
+           showResult()
+        }
+    }
+
+    private fun showResult(){
+        if (binding.costOfService.text.isNotEmpty()){
+            calculateTip()
+        }else{
+            binding.tipResult.text = "Kindly add cost!"
         }
     }
 
